@@ -18,7 +18,11 @@ on: [push]
           npm install
           npm run build
        - uses: actions/upload-artifact@main
-       with:
+    - uses: actions/download-artifact@main
+      with:
+        name: webpack artifacts
+        path: public
+    - name: npm install, and test
           name: webpack artifacts
           path: public/
 
