@@ -3,10 +3,7 @@ name: Test CI
 
 on: [push]
 
-      - uses: actions/upload-artifact@master
-        with:
-          name: webpack artifacts
-          path: public/
+jobs:
   build:
 
     runs-on: ubuntu-latest
@@ -18,11 +15,7 @@ on: [push]
           npm install
           npm run build
        - uses: actions/upload-artifact@main
-    - uses: actions/download-artifact@main
-      with:
-        name: webpack artifacts
-        path: public
-    - name: npm install, and test
+       with:
           name: webpack artifacts
           path: public/
 
